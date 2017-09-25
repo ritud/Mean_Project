@@ -1,0 +1,17 @@
+.new{
+  width:970px;
+}
+textarea{
+  width: 420px;
+ height: 50px;
+}
+.text{
+  width: 420px;
+}
+tr{
+  margin-bottom:30px;
+}
+span{
+  color:red;
+  font-size:15px;
+}

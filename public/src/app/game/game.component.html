@@ -1,0 +1,17 @@
+<div class="main">
+<a [routerLink]= "['']">Home</a> | <a [routerLink]="['/new_question']">Add a Question</a><a [routerLink]= "['']" (click)='logout()' class="logout">Logout</a>
+
+<p>Hi,{{user}}</p>
+<p>Choose an answer for each of the questions and submit the test once done.</p>
+<p>Good luck!</p>
+<form>
+<div class="ques" *ngFor = "let val of question; let idx=index">
+<p>{{idx+1}}. {{val.question}}</p>
+<p><input type="radio" name="{{idx}}" value="{{val.fans1}}"  [(ngModel)]='answer[idx]'>{{val.fans1}} </p>
+<p><input type="radio" name="{{idx}}" value="{{val.fans2}}"  [(ngModel)]='answer[idx]'>{{val.fans2}}</p>
+<p><input type="radio" name="{{idx}}" value="{{val.cans}}"   [(ngModel)]='answer[idx]'>{{val.cans}}</p>
+</div>
+<input type="button" value="Cancel" (click)='cancel()'>
+<input type="button" value="Submit" (click)='submit()'>
+</form>
+</div>

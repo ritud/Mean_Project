@@ -1,0 +1,19 @@
+<div class="main">
+<a [routerLink]= "['']">Home</a> | <a [routerLink]="['new_question']">Add a Question</a><a [routerLink]= "['']" (click)='logout()' class="logout">Logout</a>
+
+<div *ngIf='!user'>
+  <form #formData='ngForm'>
+  <label>Please enter your name </label>
+  <input type="text" name="name" required [(ngModel)]="user_name"><span *ngIf="!name?.valid && name?.touched">Name is required!</span>
+  <input type="submit" value="Login" [disabled]="formData.valid ? null : true" (click)='submit()'>
+</form>
+</div>
+<div *ngIf = 'user'>
+<p *ngIf = 'status'>
+  Your score is {{score}}/3.</p>
+<div class="play">
+  <button (click)='play()' name="play">Play!</button>
+  <p>Click the button above to start the trivia game</p>
+</div>
+</div>
+</div>

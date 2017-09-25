@@ -1,0 +1,15 @@
+<a [routerLink]= "['']">Home</a> | <a [routerLink]="['/new_question']">Add a Question</a>
+
+<div class="new">
+  <h1>New Question</h1>
+  <form action="#" method="post" #formData='ngForm'>
+    <table>
+  <tr><td>Question</td><td><textarea name="textquestion" required minlength="15" [(ngModel)]="question" #textquestion="ngModel"></textarea><span *ngIf="!textquestion?.valid && textquestion?.touched">Question must be atleast 15 characters long!</span></td></tr>
+  <tr><td>Correct Answer</td><td><input type="text" name="textcans" class="text" required [(ngModel)]="cans" #textcans="ngModel"><span *ngIf="!textcans?.valid && textcans?.touched">Correct answer is required!</span></td></tr>
+  <tr><td>Fake Answer 1</td><td><input type="text" name="textfans1" class="text" required [(ngModel)]="fans1" #textfans1="ngModel"><span *ngIf="!textfans1?.valid && textfans1?.touched">Fake answer is required!</span></td></tr>
+  <tr><td>Fake Answer 2</td><td><input type="text" name="textfans2" class="text" required [(ngModel)]="fans2" #textfans2="ngModel"><span *ngIf="!textfans2?.valid && textfans2?.touched">Fake answer is required!</span></td></tr>
+  <tr><td></td><td><input type="button" value="Cancel" (click)='cancel()'>
+  <input type="button" value="Add Question" [disabled]="formData.valid ? null : true" (click)='submit()'></td></tr>
+</table>
+</form>
+</div>
